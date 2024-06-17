@@ -1,0 +1,2 @@
+@url = http://localhost:4200
+GET {{url}}/api/v1/employees/1
