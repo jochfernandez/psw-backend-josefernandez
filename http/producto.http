@@ -1,0 +1,45 @@
+@url = http://localhost:3000/
+POST {{url}}/api/producto/producto
+content-type: application/json
+
+{
+    "nombre": "iPhone 10",
+    "descripcion": "iPhone 10 Plateado con iOS 13",
+    "imagen": "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "precio": 500,
+    "stock": 10000,
+    "destacado": true
+}
+
+###
+
+GET {{url}}/api/producto/producto
+
+###
+
+PATCH {{url}}/api/producto/producto/66705934a108b8213a7602d7
+content-type: application/json
+
+{
+    "stock": 100
+}
+
+
+###
+PUT {{url}}/api/producto/producto/66705934a108b8213a7602d7
+content-type: application/json
+
+{
+    "nombre": "iPhone 11",
+    "descripcion": "iPhone 11 Plateado con iOS 13",
+    "imagen": "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "precio": 500,
+    "stock": 10000,
+    "destacado": true
+}
+
+###
+GET {{url}}/api/producto/productoDestacado
+
+###
+DELETE {{url}}/api/producto/producto/66705934a108b8213a7602d7

@@ -7,6 +7,6 @@ router.get('/producto', productoCtrl.getProductos);
 router.delete('/producto/:id', productoCtrl.deleteProducto);
 router.patch('/producto/:id', productoCtrl.patchProducto);
 router.put('/producto/:id', productoCtrl.putProducto);
-router.get('/producto/:id', productoCtrl.getProductosDestacados);
+router.get('/productoDestacado', productoCtrl.getProductosDestacados);
 
 module.exports = router;

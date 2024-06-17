@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row p-3 m-2 rounded rounded-5 bg-body-secondary">
+    <div class="col-6">
+      <button class="btn btn-success rounded rounded-5 w-100">Agregar Transaccion</button>
+    </div>
+    <div class="col-6">
+      <button class="btn btn-success rounded rounded-5 w-100">Listar Transacciones</button>
+    </div>
+  </div>
+  <div class="card m-2">
+    <div class="card-header">
+      <h3>Agregar Transaccion</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label for="monedaOrigenTransaccion" class="form-label">Moneda Origen</label>
+          <input type="text" class="form-control" id="monedaOrigenTransaccion" aria-describedby="monedaOrigenAyuda">
+          <div id="precioTicketAyuda" class="form-text">Seleccione alguna Moneda de Origen</div>
+        </div>
+        <div class="mb-3">
+          <label for="cantidadOrigenTransaccion" class="form-label">Cantidad de Origen</label>
+          <input type="number" class="form-control" id="cantidadOrigenTransaccion" aria-describedby="cantidadDeOrigenAyuda" step="0.01">
+          <div id="cantidadDeOrigenAyuda" class="form-text">Recuerde que al poner el numero con decimal debe hacerlo asi 59,52</div>
+        </div>
+        <div class="mb-3">
+          <label for="monedaDestinoTransaccion" class="form-label">Moneda Destino</label>
+          <input type="text" class="form-control" id="monedaDestinoTransaccion" aria-describedby="monedaDestinoTransaccionAyuda">
+          <div id="monedaDestinoTransaccionAyuda" class="form-text">Seleccione alguna Moneda de Destino distinta a la inicial</div>
+        </div>
+        <div class="mb-3">
+          <label for="emailClienteTransaccion" class="form-label">Email del Cliente</label>
+          <input type="email" class="form-control" id="emailClienteTransaccion" aria-describedby="emailClienteTransaccionAyuda">
+          <div id="emailClienteTransaccionAyuda" class="form-text">Usaremos este mail poder comunicarnos con usted si es necesario</div>
+        </div>
+        <div class="mb-3">
+          <label for="tasaConversionTransaccion" class="form-label">Tasa de Conversion</label>
+          <input type="number" class="form-control" id="tasaConversionTransaccion" aria-describedby="tasaConversionTransaccionAyuda">
+          <div id="tasaConversionTransaccionAyuda" class="form-text">Coloque la tasa de conversión que desea</div>
+        </div>
+
+        <div class="mb-3">
+          <button class="btn btn-success w-100"> Calcular Cantidad Destino</button>
+        </div>
+
+        <div class="mb-3">
+          <span>Cantidad Destino</span>
+        </div>
+
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-outline-success w-100">Enviar</button>
+    </div>
+  </div>
+  <div class="card m-2">
+    <div class="card-header">
+      <h3>Listar Transacciones</h3>
+    </div>
+    <div class="card-body">
+      <div class="m-2">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioPorMail">
+          <label class="form-check-label" for="radioPorMail">
+            Buscar Por Email
+          </label>
+        </div>
+        <div class="mb-3">
+          <label for="emailClienteTransaccionBuscar" class="form-label">Email del Cliente</label>
+          <input type="email" class="form-control" id="emailClienteTransaccionBuscar" aria-describedby="emailClienteTransaccionBuscarAyuda">
+          <div id="emailClienteTransaccionBuscarAyuda" class="form-text">Este debe ser un mail registrado para que encuentre los datos</div>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioMoneda" checked>
+          <label class="form-check-label" for="radioMoneda">
+            Radio Moneda Origen y Destino
+          </label>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="monedaOrigenTransaccionBuscar" class="form-label">Moneda Origen</label>
+              <input type="text" class="form-control" id="monedaOrigenTransaccionBuscar" aria-describedby="monedaOrigenTransaccionBuscarAyuda">
+              <div id="monedaOrigenTransaccionBuscarAyuda" class="form-text">Seleccione alguna Moneda de Origen</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="monedaDestinoTransaccionBuscar" class="form-label">Moneda Destino</label>
+              <input type="text" class="form-control" id="monedaDestinoTransaccionBuscar" aria-describedby="monedaDestinoTransaccionBuscarAyuda">
+              <div id="monedaDestinoTransaccionBuscarAyuda" class="form-text">Seleccione alguna Moneda de Destino distinta a la inicial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-success w-100 m-2"> Listar </button>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="card pb-0 m-2" style="width: 18rem;">
+            <img src="assets/imagenes-menu/transacciones.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

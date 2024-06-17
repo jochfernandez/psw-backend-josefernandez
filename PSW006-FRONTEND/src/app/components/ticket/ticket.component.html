@@ -1,0 +1,156 @@
+<div class="container-fluid">
+  <div class="row p-3 m-2 rounded rounded-5 bg-body-secondary">
+    <div class="col-4 mb-2">
+      <button class="btn btn-primary rounded rounded-5 w-100">Agregar Ticket</button>
+    </div>
+    <div class="col-4 mb-2">
+      <button class="btn btn-primary rounded rounded-5 w-100">Listar Tickets</button>
+    </div>
+    <div class="col-4 mb-2">
+      <button class="btn btn-primary rounded rounded-5 w-100">Eliminar Ticket</button>
+    </div>
+    <div class="col-6">
+      <button class="btn btn-primary rounded rounded-5 w-100">Modificar Ticket</button>
+    </div>
+    <div class="col-6">
+      <button class="btn btn-primary rounded rounded-5 w-100">Listar Tickets por categoria</button>
+    </div>
+  </div>
+  <div class="card m-2">
+    <div class="card-header">
+      <h3>Agregar Ticket</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label for="precioTicket" class="form-label">Precio Ticket</label>
+          <input type="number" class="form-control" id="precioTicket" aria-describedby="precioTicketAyuda" step="0.01">
+          <div id="precioTicketAyuda" class="form-text">Puede ingresar decimales de la forma 99,55</div>
+        </div>
+        <div class="mb-3">
+          <label for="categoriaEspectadorTicket" class="form-label">Categoria</label>
+          <input type="text" class="form-control" id="categoriaEspectadorTicket" aria-describedby="categoriaEspectadorTicketAyuda">
+          <div id="categoriaEspectadorTicketAyuda" class="form-text">Solo puede ingresar L (Local) o E (Extranjero)</div>
+        </div>
+        <div class="mb-3">
+          <label for="fechaTicket" class="form-label">Fecha Compra</label>
+          <input type="text" class="form-control" id="fechaTicket" aria-describedby="fechaTicketAyuda">
+          <div id="fechaTicketAyuda" class="form-text">Utilice el formato dd/mm/yyyy, por ejemplo 02/01/2024</div>
+        </div>
+        <div class="mb-3">
+          <label for="espectadorTicket" class="form-label">Espectador</label>
+          <input type="number" class="form-control" id="espectadorTicket" aria-describedby="espectadorTicketAyuda" step="0.01">
+          <div id="espectadorTicketAyuda" class="form-text">Seleccione algún Espectador de la lista</div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-outline-primary w-100">Enviar</button>
+    </div>
+  </div>
+
+  <div class="card m-2">
+    <div class="card-header">
+      <h3>Listar Tickets</h3>
+    </div>
+    <div class="card-body">
+      <div class="m-2">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioTodos">
+          <label class="form-check-label" for="radioTodos">
+            Todos los tickets
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioLocal">
+          <label class="form-check-label" for="radioLocal">
+            Categoria Local
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioExtranjero" checked>
+          <label class="form-check-label" for="radioExtranjero">
+            Categoria Extranjero
+          </label>
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-100 m-2"> Listar </button>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="card pb-0 m-2" style="width: 18rem;">
+            <img src="assets/imagenes-menu/tickets.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-danger">Eliminar</button>
+                <button type="button" class="btn btn-warning">Modificar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card m-2">
+    <div class="card-header">
+      <h3>Eliminar Ticket</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label for="idTicket" class="form-label">Id del Ticket</label>
+          <input type="text" class="form-control" id="idTicket" aria-describedby="idTicketAyuda">
+          <div id="idTicketAyuda" class="form-text">Ingrese el id del Ticket a eliminar</div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-outline-primary w-100">Eliminar</button>
+    </div>
+  </div>
+
+  <div class="card m-2">
+    <div class="card-header">
+      <h3>Modificar Ticket</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label for="idTicketModificar" class="form-label">Id del Ticket</label>
+          <input type="text" class="form-control" id="idTicketModificar" aria-describedby="idTicketModificarAyuda">
+          <div id="idTicketModificarAyuda" class="form-text">Ingrese el id del Ticket a modificar</div>
+        </div>
+        <button class="btn btn-primary w-100">Buscar</button>
+        <div class="table-group-divider mt-1 mb-1"></div>
+        <div class="mb-3">
+          <label for="precioTicketModificar" class="form-label">Precio Ticket</label>
+          <input type="number" class="form-control" id="precioTicketModificar" aria-describedby="precioTicketAyudaModificar" step="0.01">
+          <div id="precioTicketAyudaModificar" class="form-text">Puede ingresar decimales de la forma 99,55</div>
+        </div>
+        <div class="mb-3">
+          <label for="categoriaEspectadorTicketModificar" class="form-label">Categoria</label>
+          <input type="text" class="form-control" id="categoriaEspectadorTicketModificar" aria-describedby="categoriaEspectadorTicketAyudaModificar">
+          <div id="categoriaEspectadorTicketAyudaModificar" class="form-text">Solo puede ingresar L (Local) o E (Extranjero)</div>
+        </div>
+        <div class="mb-3">
+          <label for="fechaTicketModificar" class="form-label">Fecha Compra</label>
+          <input type="text" class="form-control" id="fechaTicketModificar" aria-describedby="fechaTicketAyudaModificar">
+          <div id="fechaTicketAyudaModificar" class="form-text">Utilice el formato dd/mm/yyyy, por ejemplo 02/01/2024</div>
+        </div>
+        <div class="mb-3">
+          <label for="espectadorTicketModificar" class="form-label">Espectador</label>
+          <input type="number" class="form-control" id="espectadorTicketModificar" aria-describedby="espectadorTicketAyudaModificar" step="0.01">
+          <div id="espectadorTicketAyudaModificar" class="form-text">Seleccione algún Espectador de la lista</div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-outline-primary w-100">Modificar</button>
+    </div>
+  </div>
+
+</div>
+

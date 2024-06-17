@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row p-3 m-2 rounded rounded-5 bg-body-secondary">
+    <div class="col-4">
+      <button class="btn btn-danger rounded rounded-5 w-100">Agregar Espectador</button>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-danger rounded rounded-5 w-100">Listar Espectadores</button>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-danger rounded rounded-5 w-100">Espectador por ID</button>
+    </div>
+  </div>
+  <div class="card m-2">
+    <div class="card-header">
+      <h3>Agregar Espectador</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label for="nombreEspectador" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombreEspectador" aria-describedby="nombreEspectadorAyuda">
+          <div id="nombreEspectadorAyuda" class="form-text">Ingrese el nombre o los nombres</div>
+        </div>
+        <div class="mb-3">
+          <label for="apellidoEspectador" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="apellidoEspectador" aria-describedby="apellidoEspectadorAyuda">
+          <div id="apellidoEspectadorAyuda" class="form-text">Ingrese el apellido o los apellidos</div>
+        </div>
+        <div class="mb-3">
+          <label for="dniEspectador" class="form-label">DNI</label>
+          <input type="text" class="form-control" id="dniEspectador" aria-describedby="dniEspectadorAyuda">
+          <div id="dniEspectadorAyuda" class="form-text">No coloque puntos</div>
+        </div>
+        <div class="mb-3">
+          <label for="emailEspectador" class="form-label">Email</label>
+          <input type="email" class="form-control" id="emailEspectador">
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-outline-danger w-100">Enviar</button>
+    </div>
+  </div>
+  <div class="card m-2">
+    <div class="card-header">
+      <h3>Listar Espectadores</h3>
+    </div>
+    <div class="card-body">
+      <button class="btn btn-danger w-100 m-2"> Listar </button>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="card pb-0 m-2" style="width: 18rem;">
+            <img src="assets/imagenes-menu/espectadores.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card m-2">
+    <div class="card-header">
+      <h3>Espectador por ID</h3>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label for="idEspectador" class="form-label">Id del Espectador</label>
+          <input type="text" class="form-control" id="idEspectador" aria-describedby="idEspectadorAyuda">
+          <div id="idEspectadorAyuda" class="form-text">Ingrese el id del Espectador a Buscar</div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-outline-danger w-100">Buscar</button>
+    </div>
+  </div>
+</div>
+
+
