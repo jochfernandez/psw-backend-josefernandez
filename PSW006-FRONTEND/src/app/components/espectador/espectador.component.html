@@ -1,8 +1,8 @@
 <div class="container-fluid">
-  <div class="row p-3 m-2 rounded rounded-5 bg-body-secondary sticky-top">
+  <div class="row p-3 mb-2 rounded rounded-top-0 rounded-bottom-5 bg-body-secondary sticky-top">
     <div class="btn-group nav nav-pills" id="pills-tab" role="group" aria-label="Basic example">
       <button class="btn btn-danger" id="pills-agregar-tab" data-bs-toggle="pill" data-bs-target="#pills-agregar" type="button" role="tab" aria-controls="pills-agregar" aria-selected="true">Agregar</button>
-      <button class="btn btn-danger" id="pills-listar-tab" data-bs-toggle="pill" data-bs-target="#pills-listar" type="button" role="tab" aria-controls="pills-listar" aria-selected="false">Listar</button>
+      <button class="btn btn-danger" id="pills-listar-tab" data-bs-toggle="pill" data-bs-target="#pills-listar" type="button" role="tab" aria-controls="pills-listar" aria-selected="false" (click)="obtenerEspectadores()">Listar</button>
       <button class="btn btn-danger" id="pills-buscar-tab" data-bs-toggle="pill" data-bs-target="#pills-buscar" type="button" role="tab" aria-controls="pills-buscar" aria-selected="false">Buscar</button>
     </div>
   </div>
@@ -13,30 +13,30 @@
           <h3>Agregar Espectador</h3>
         </div>
         <div class="card-body">
-          <form>
+          <form #espectadorForm="ngForm">
             <div class="mb-3">
               <label for="nombreEspectador" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombreEspectador" aria-describedby="nombreEspectadorAyuda">
+              <input type="text" class="form-control" id="nombreEspectador" aria-describedby="nombreEspectadorAyuda" [(ngModel)]="espectador.nombre" name="nombreEspectador">
               <div id="nombreEspectadorAyuda" class="form-text">Ingrese el nombre o los nombres</div>
             </div>
             <div class="mb-3">
               <label for="apellidoEspectador" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="apellidoEspectador" aria-describedby="apellidoEspectadorAyuda">
+              <input type="text"  class="form-control" id="apellidoEspectador" aria-describedby="apellidoEspectadorAyuda" [(ngModel)]="espectador.apellido" name="apellidoEspectador">
               <div id="apellidoEspectadorAyuda" class="form-text">Ingrese el apellido o los apellidos</div>
             </div>
             <div class="mb-3">
-              <label for="dniEspectador" class="form-label">DNI</label>
-              <input type="text" class="form-control" id="dniEspectador" aria-describedby="dniEspectadorAyuda">
+              <label for="dniEspectador" class="form-label" >DNI</label>
+              <input type="text" class="form-control" id="dniEspectador" aria-describedby="dniEspectadorAyuda" [(ngModel)]="espectador.dni" name="dniEspectador">
               <div id="dniEspectadorAyuda" class="form-text">No coloque puntos</div>
             </div>
             <div class="mb-3">
-              <label for="emailEspectador" class="form-label">Email</label>
-              <input type="email" class="form-control" id="emailEspectador">
+              <label for="emailEspectador" class="form-label" >Email</label>
+              <input type="email" class="form-control" id="emailEspectador" [(ngModel)]="espectador.email" name="emailEspectador">
             </div>
           </form>
         </div>
         <div class="card-footer">
-          <button class="btn btn-outline-danger w-100">Enviar</button>
+          <button class="btn btn-outline-danger w-100" (click)="cargarEspectador()" [disabled]="!espectadorForm.valid">Enviar</button>
         </div>
       </div>
     </div>
@@ -46,15 +46,17 @@
           <h3>Listar Espectadores</h3>
         </div>
         <div class="card-body">
-          <button class="btn btn-danger w-100 m-2"> Listar </button>
           <div class="row">
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="card pb-0 m-2" style="width: 18rem;">
+            <div class="col-12 col-sm-6 col-md-4" *ngFor="let e of espectadores">
+              <div class="card pb-0 m-2">
                 <img src="assets/imagenes-menu/espectadores.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                       <li class="list-group-item">{{e.apellido}} {{e.nombre}}</li>
+                       <li class="list-group-item">DNI: {{e.dni}}</li>
+                       <li class="list-group-item"><a href="mailto:{{e.email}}" class="card-link">{{e.email}}</a></li>
+                    </ul>
+                  </div>
               </div>
             </div>
           </div>
@@ -67,16 +69,65 @@
           <h3>Espectador por ID</h3>
         </div>
         <div class="card-body">
-          <form>
-            <div class="mb-3">
-              <label for="idEspectador" class="form-label">Id del Espectador</label>
-              <input type="text" class="form-control" id="idEspectador" aria-describedby="idEspectadorAyuda">
-              <div id="idEspectadorAyuda" class="form-text">Ingrese el id del Espectador a Buscar</div>
+          <div class="btn-group nav nav-pills mb-2" id="pills-tab-Busqueda" role="group" aria-label="Basic example">
+            <button class="btn btn-outline-danger" id="pills-buscarPorLista-tab" data-bs-toggle="pill" data-bs-target="#pills-buscarPorLista" type="button" role="tab" aria-controls="pills-buscarPorLista" aria-selected="true">Buscar por Lista</button>
+            <button class="btn btn-outline-danger" id="pills-buscarPorId-tab" data-bs-toggle="pill" data-bs-target="#pills-buscarPorId" type="button" role="tab" aria-controls="pills-buscarPorId" aria-selected="false" (click)="limpiarVariableEpectadorId()">Buscar por Id</button>
+          </div>
+          <div class="tab-content" id="pills-BusquedaEspectador">
+            <div class="tab-pane fade" id="pills-buscarPorLista" role="tabpanel" aria-labelledby="pills-buscarPorLista-tab" tabindex="0">
+              <div class="col-12 mb-2 mt-2">
+                <div class="dropdown">
+                  <button class="text-start btn btn-outline-secondary dropdown-toggle w-100" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ datosEspectador }}
+                  </button>
+                  <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                    <li class="w-100" *ngFor="let i of espectadores">
+                      <a class="dropdown-item w-100" (click)="seleccionarEspectador(i.nombre,i.apellido,i.dni,i._id)">{{i.nombre}} {{i.apellido}} - {{i.dni}}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <form>
+                <div class="mb-3">
+                  <label for="idEspectadorLista" class="form-label">Id del Espectador</label>
+                  <span class="text-center ms-2" id="idEspectadorLista" aria-describedby="idEspectadorAyuda"> {{ idEspectador}} </span>
+                  <div id="idEspectadorAyuda" class="form-text">Seleccione de la lista el Especatador y el id aparecera</div>
+                </div>
+              </form>
             </div>
-          </form>
+            <div class="tab-pane fade" id="pills-buscarPorId" role="tabpanel" aria-labelledby="pills-buscarPorId-tab" tabindex="0">
+              <form>
+                <div class="mb-3">
+                  <label for="idEspectadorBusqueda" class="form-label">Id del Espectador</label>
+                  <input type="text" class="form-control" id="idEspectadorBusqueda" aria-describedby="idEspectadorBusquedaAyuda" [(ngModel)]="idEspectador" name="idEspectador">
+                  <div id="idEspectadorBusquedaAyuda" class="form-text">Ingrese una id valida</div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
         <div class="card-footer">
-          <button class="btn btn-outline-danger w-100">Buscar</button>
+          <button type="button" class="btn btn-outline-danger w-100" data-bs-toggle="modal" data-bs-target="#espectadorModal" (click)="obtenerEspectadorPorId()">
+            Buscar
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="espectadorModal" tabindex="-1" aria-labelledby="espectadorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="espectadorModalLabel">Espectador con los siguientes datos</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-danger">
+              <p class="card-text">Nombre y Apellido: {{ espectadorBuscado.nombre }} {{espectadorBuscado.apellido}}</p>
+              <p class="card-text">DNI: {{espectadorBuscado.dni}}</p>
+              <p class="card-text">Email: {{espectadorBuscado.email}}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

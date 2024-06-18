@@ -1,5 +1,24 @@
 ### GET request to example server
 GET https://examples.http-client.intellij.net/get
     ?generated-in=WebStorm
+###
+
+@url = http://localhost:3000/
+POST {{url}}/api/espectador/espectador
+content-type: application/json
+
+{
+  "apellido": "Masachesi",
+  "nombre": "Rodo",
+  "dni" : "47896212",
+  "email" : "rodo@gmail.com"
+}
 
 ###
+
+GET {{url}}/api/espectador/espectador
+
+###
+
+GET {{url}}/api/espectador/espectador/6670dd76265a95cd216907cf
+
