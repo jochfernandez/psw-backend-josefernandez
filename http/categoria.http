@@ -1,0 +1,18 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=WebStorm
+
+###
+
+@url = http://localhost:3000/
+POST {{url}}/api/categoria/categoria
+content-type: application/json
+
+{
+  "nombre" : "Golden",
+  "descripcion" : "Categoria Golden"
+}
+
+###
+GET {{url}}/api/categoria/categoria
+###

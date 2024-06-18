@@ -1,0 +1,46 @@
+<div class="card m-2">
+  <div class="card-header">
+    <h3>Listar Tickets</h3>
+  </div>
+  <div class="card-body">
+    <div class="m-2">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioTodos">
+        <label class="form-check-label" for="radioTodos">
+          Todos los tickets
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioLocal">
+        <label class="form-check-label" for="radioLocal">
+          Categoria Local
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioExtranjero" checked>
+        <label class="form-check-label" for="radioExtranjero">
+          Categoria Extranjero
+        </label>
+      </div>
+    </div>
+
+    <button class="btn btn-primary w-100 m-2"> Listar </button>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4" *ngFor="let t of todosLosTickets" >
+        <div class="card pb-0 m-2">
+          <img src="assets/imagenes-menu/tickets.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Ticket</h5>
+            <p class="card-text">Categoria: {{t.categoriaEspectador}}</p>
+            <p class="card-text">Fecha de Compra: {{t.fechaCompra}}</p>
+            <p class="card-text">Precio: {{t.precioTicket | currency}}</p>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+              <button type="button" class="btn btn-danger">Eliminar</button>
+              <button type="button" class="btn btn-warning">Modificar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

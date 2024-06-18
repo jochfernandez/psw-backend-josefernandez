@@ -3,7 +3,7 @@ POST {{url}}/api/producto/producto
 content-type: application/json
 
 {
-    "nombre": "iPhone 10",
+    "nombre": "iPhone 12",
     "descripcion": "iPhone 10 Plateado con iOS 13",
     "imagen": "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "precio": 500,

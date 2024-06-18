@@ -1,4 +1,4 @@
-const productoCtrl = require('../controllers/producto.controller');
+const productoCtrl = require("../controllers/producto.controller");
 const express = require('express');
 const router = express.Router();
 

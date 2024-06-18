@@ -11,7 +11,7 @@ app.use('/api/producto', require('./routes/producto.routes'));
 app.use('/api/ticket', require('./routes/ticket.routes'));
 app.use('/api/espectador', require('./routes/espectador.routes'));
 app.use('/api/transaccion', require('./routes/transaccion.routes'));
-
+app.use('/api/categoria', require('./routes/categoria.routes'))
 //setting
 app.set('port', process.env.PORT || 3000);
 //starting the server

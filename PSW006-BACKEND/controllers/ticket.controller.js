@@ -7,12 +7,13 @@ ticketCtrl.postTicket = async (req, res) => {
         await ticket.save();
         res.json({
             'status': '1',
-            'msg': 'Producto guardado.'
+            'msg': 'Ticket guardado.'
         });
     }catch (error){
         res.status(400).json({
+            "error": error,
             'status' : '0',
-            'msg': 'No se pudo guardar el producto.'
+            'msg': 'No se pudo guardar el Ticket.'
         })
     }
 }

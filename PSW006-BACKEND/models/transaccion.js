@@ -9,5 +9,4 @@ const TransaccionSchema = new Schema({
     emailCliente : { type: String, required: true },
     tasaConversion : { type: Number, required: true },
 });
-
 module.exports = moongose.model('Transaccion', TransaccionSchema) || moongose.models.Transaccion;

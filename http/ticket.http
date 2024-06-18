@@ -3,3 +3,18 @@ GET https://examples.http-client.intellij.net/get
     ?generated-in=WebStorm
 
 ###
+@url = http://localhost:3000/
+
+POST {{url}}/api/ticket/ticket
+content-type: application/json
+
+{
+    "precioTicket": 500,
+    "categoriaEspectador": "L",
+    "fechaCompra": "02/01/2024",
+    "espectador" : "6671e91ffaea8b5eac16c1b2"
+}
+
+###
+
+GET {{url}}/api/ticket/ticket

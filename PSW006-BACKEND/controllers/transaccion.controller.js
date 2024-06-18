@@ -2,7 +2,7 @@ const Transaccion = require('../models/transaccion');
 const transaccionCtrl = {};
 
 transaccionCtrl.postTransaccion = async (req, res) => {
-    const transaccion = new Transaccion(req.body);
+    const transaccion  = new Transaccion(req.body);
     try{
         await transaccion.save();
         res.json({
@@ -17,7 +17,7 @@ transaccionCtrl.postTransaccion = async (req, res) => {
     }
 }
 
-transaccionCtrl.getTransacciones = async (req, res) => {
+transaccionCtrl.getTodasTransacciones = async (req, res) => {
     try{
         const transacciones = await Transaccion.find();
         res.json(transacciones);
@@ -27,10 +27,9 @@ transaccionCtrl.getTransacciones = async (req, res) => {
             'msg': 'Error al recuperar las transacciones.'
         });
     }
-
 }
 
-transaccionCtrl.getTransacciones = async (req, res) => {
+transaccionCtrl.getTransaccionesPorEmail = async (req, res) => {
     try{
         const transacciones = await Transaccion.find({emailCliente: req.params.email});
         res.json(transacciones);
@@ -42,7 +41,7 @@ transaccionCtrl.getTransacciones = async (req, res) => {
     }
 }
 
-transaccionCtrl.getTransacciones = async (req, res) => {
+transaccionCtrl.getTransaccionesPorMonedas = async (req, res) => {
     const { monedaOrigen, monedaDestino } = req.params;
     try{
         const transacciones = await Transaccion.find({monedaOrigen, monedaDestino});

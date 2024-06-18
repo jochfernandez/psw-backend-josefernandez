@@ -3,3 +3,28 @@ GET https://examples.http-client.intellij.net/get
     ?generated-in=WebStorm
 
 ###
+
+@url = http://localhost:3000/
+POST {{url}}/api/transaccion/transaccion
+content-type: application/json
+
+{
+  "monedaOrigen": "EUR",
+  "cantidadOrigen": 4000,
+  "monedaDestino" : "ARS",
+  "cantidadDestino": 6000,
+  "emailCliente" : "rolando@gmail.com",
+  "tasaConversion": 9
+}
+
+###
+
+GET {{url}}/api/transaccion/transaccion
+
+###
+
+GET {{url}}/api/transaccion/transaccion/jose@gmail.com
+
+###
+
+GET http://localhost:3000/api/transaccion/transaccionPorMonedas/USD,ARS
