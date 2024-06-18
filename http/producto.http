@@ -21,7 +21,7 @@ PATCH {{url}}/api/producto/producto/66705934a108b8213a7602d7
 content-type: application/json
 
 {
-    "stock": 100
+    "imagen": "https://static.fnac-static.com/multimedia/Images/ES/NR/4c/45/15/1393996/1520-1/tsp20170915120216/Apple-iPhone-X-64GB-Plata.jpg"
 }
 
 

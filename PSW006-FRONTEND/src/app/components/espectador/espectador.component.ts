@@ -38,7 +38,6 @@ export class EspectadorComponent {
             (res : any) => {
                 if(res.status == 1){
                   alert("Espectador agregado correctamente");
-                  this.router.navigate(['/espectador']);
                 }
             },
             (err) => {

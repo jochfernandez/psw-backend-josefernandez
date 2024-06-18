@@ -4,7 +4,7 @@
       <button class="btn btn-info" id="pills-agregar-tab" data-bs-toggle="pill" data-bs-target="#pills-agregar" type="button" role="tab" aria-controls="pills-agregar" aria-selected="true">Agregar</button>
       <button class="btn btn-info" id="pills-eliminar-tab" data-bs-toggle="pill" data-bs-target="#pills-eliminar" type="button" role="tab" aria-controls="pills-eliminar" aria-selected="false">Eliminar</button>
       <button class="btn btn-info" id="pills-modificar-tab" data-bs-toggle="pill" data-bs-target="#pills-modificar" type="button" role="tab" aria-controls="pills-modificar" aria-selected="false">Modificar</button>
-      <button class="btn btn-info" id="pills-listar-tab" data-bs-toggle="pill" data-bs-target="#pills-listar" type="button" role="tab" aria-controls="pills-listar" aria-selected="false">Listar</button>
+      <button class="btn btn-info" id="pills-listar-tab" data-bs-toggle="pill" data-bs-target="#pills-listar" type="button" role="tab" aria-controls="pills-listar" aria-selected="false" (click)="obtenerProductos()">Listar</button>
     </div>
   </div>
   <div class="tab-content" id="pills-tabContent">
@@ -17,37 +17,37 @@
           <form>
             <div class="mb-3">
               <label for="nombreProducto" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombreProducto" aria-describedby="nombreProductoAyuda">
+              <input type="text" class="form-control" id="nombreProducto" aria-describedby="nombreProductoAyuda" [(ngModel)]="producto.nombre" name="nombreProducto">
               <div id="nombreProductoAyuda" class="form-text">Ingrese el nombre del Producto</div>
             </div>
             <div class="mb-3">
               <label for="descripcionProducto" class="form-label">Descripcion</label>
-              <input type="text" class="form-control" id="descripcionProducto">
+              <input type="text" class="form-control" id="descripcionProducto" [(ngModel)]="producto.descripcion" name="descripcionProducto" >
             </div>
             <div class="mb-3">
               <label for="imagenProducto" class="form-label">Imagen</label>
-              <input type="text" class="form-control" id="imagenProducto" aria-describedby="imagenProductoAyuda">
+              <input type="text" class="form-control" id="imagenProducto" aria-describedby="imagenProductoAyuda" [(ngModel)]="producto.imagen" name="imagenProducto">
               <div id="imagenProductoAyuda" class="form-text">Ingrese el link de una imagen</div>
             </div>
             <div class="mb-3">
               <label for="precioProducto" class="form-label">Precio</label>
-              <input type="number" class="form-control" id="precioProducto" aria-describedby="precioProductoAyuda" step="0.01">
+              <input type="number" class="form-control" id="precioProducto" aria-describedby="precioProductoAyuda" step="0.01" [(ngModel)]="producto.precio" name="precioProducto">
               <div id="precioProductoAyuda" class="form-text">Puede ingresar decimales de la forma 99,55</div>
             </div>
             <div class="mb-3">
               <label for="stockProducto" class="form-label">Stock</label>
-              <input type="number" class="form-control" id="stockProducto">
+              <input type="number" class="form-control" id="stockProducto" [(ngModel)]="producto.stock" name="stockProducto">
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="productoDestacado">
-              <label class="form-check-label" for="productoDestacado">
+              <input class="form-check-input" type="checkbox" value="" id="productoDestacado" [ngModel]="producto.destacado" name="destacadoProducto" (change)="destacar()">
+              <label class="form-check-label" for="productoDestacado" >
                 Destacado
               </label>
             </div>
           </form>
         </div>
         <div class="card-footer">
-          <button class="btn btn-outline-info w-100">Enviar</button>
+          <button class="btn btn-outline-info w-100" (click)="cargarProducto()">Enviar</button>
         </div>
       </div>
     </div>
@@ -127,26 +127,42 @@
         </div>
         <div class="card-body">
           <div class="form-check m-2">
-            <input class="form-check-input" type="checkbox" value="" id="listarProductoDestacado">
+            <input class="form-check-input" type="checkbox" value="" id="listarProductoDestacado" [ngModel]="destacadoLista" name="destacadoLista" (click)="cambiarDestacado()">
             <label class="form-check-label" for="listarProductoDestacado">
               Destacados
             </label>
           </div>
-          <button class="btn btn-info w-100 m-2"> Listar </button>
           <div class="row">
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="card pb-0 m-2" style="width: 18rem;">
-                <img src="assets/imagenes-menu/productos.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                    <button type="button" class="btn btn-danger">Eliminar</button>
-                    <button type="button" class="btn btn-warning">Modificar</button>
+            <div class="col-12">
+               <div id="carouselExampleInterval" class="carousel slide m-2 mx-auto" style="width: 50%;" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item" [class.active]="i === 0" *ngFor="let p of productos; let i = index">
+                      <div class="card">
+                        <div class="card-body">
+                          <img [src]="p.imagen" class="d-block mx-auto" alt="{{p.nombre}}">
+                          <h5>{{p.nombre}}</h5>
+                          <p>Precio $ {{p.precio}}</p>
+                          <p>{{p.descripcion}}</p>
+                        </div>
+                        <div class="card-footer">
+                          <div class="btn-group align-items-center justify-content-center" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-danger">Eliminar</button>
+                            <button type="button" class="btn btn-warning">Modificar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                  </button>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
