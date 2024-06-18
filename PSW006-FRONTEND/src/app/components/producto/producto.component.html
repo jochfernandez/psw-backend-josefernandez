@@ -1,86 +1,150 @@
 <div class="container-fluid">
-  <div class="row p-3 m-2 rounded rounded-5 bg-body-secondary">
-    <div class="col-4 mb-2">
-      <button class="btn btn-info rounded rounded-5 w-100">Agregar Producto</button>
-    </div>
-    <div class="col-4 mb-2">
-      <button class="btn btn-info rounded rounded-5 w-100">Listar Productos</button>
-    </div>
-    <div class="col-4 mb-2">
-      <button class="btn btn-info rounded rounded-5 w-100">Eliminar Producto</button>
-    </div>
-    <div class="col-6">
-      <button class="btn btn-info rounded rounded-5 w-100">Modificar Producto</button>
-    </div>
-    <div class="col-6">
-      <button class="btn btn-info rounded rounded-5 w-100">Listar Productos Destacados</button>
+  <div class="row p-3 m-2 rounded rounded-5 bg-body-secondary sticky-top">
+    <div class="btn-group nav nav-pills" id="pills-tab" role="group" aria-label="Basic example">
+      <button class="btn btn-info" id="pills-agregar-tab" data-bs-toggle="pill" data-bs-target="#pills-agregar" type="button" role="tab" aria-controls="pills-agregar" aria-selected="true">Agregar</button>
+      <button class="btn btn-info" id="pills-eliminar-tab" data-bs-toggle="pill" data-bs-target="#pills-eliminar" type="button" role="tab" aria-controls="pills-eliminar" aria-selected="false">Eliminar</button>
+      <button class="btn btn-info" id="pills-modificar-tab" data-bs-toggle="pill" data-bs-target="#pills-modificar" type="button" role="tab" aria-controls="pills-modificar" aria-selected="false">Modificar</button>
+      <button class="btn btn-info" id="pills-listar-tab" data-bs-toggle="pill" data-bs-target="#pills-listar" type="button" role="tab" aria-controls="pills-listar" aria-selected="false">Listar</button>
     </div>
   </div>
-
-  <div class="card m-2">
-    <div class="card-header">
-      <h3>Agregar Producto</h3>
-    </div>
-    <div class="card-body">
-      <form>
-        <div class="mb-3">
-          <label for="nombreProducto" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombreProducto" aria-describedby="nombreProductoAyuda">
-          <div id="nombreProductoAyuda" class="form-text">Ingrese el nombre del Producto</div>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade" id="pills-agregar" role="tabpanel" aria-labelledby="pills-agregar-tab" tabindex="0">
+      <div class="card m-2">
+        <div class="card-header">
+          <h3>Agregar Producto</h3>
         </div>
-        <div class="mb-3">
-          <label for="descripcionProducto" class="form-label">Descripcion</label>
-          <input type="text" class="form-control" id="descripcionProducto">
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="nombreProducto" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombreProducto" aria-describedby="nombreProductoAyuda">
+              <div id="nombreProductoAyuda" class="form-text">Ingrese el nombre del Producto</div>
+            </div>
+            <div class="mb-3">
+              <label for="descripcionProducto" class="form-label">Descripcion</label>
+              <input type="text" class="form-control" id="descripcionProducto">
+            </div>
+            <div class="mb-3">
+              <label for="imagenProducto" class="form-label">Imagen</label>
+              <input type="text" class="form-control" id="imagenProducto" aria-describedby="imagenProductoAyuda">
+              <div id="imagenProductoAyuda" class="form-text">Ingrese el link de una imagen</div>
+            </div>
+            <div class="mb-3">
+              <label for="precioProducto" class="form-label">Precio</label>
+              <input type="number" class="form-control" id="precioProducto" aria-describedby="precioProductoAyuda" step="0.01">
+              <div id="precioProductoAyuda" class="form-text">Puede ingresar decimales de la forma 99,55</div>
+            </div>
+            <div class="mb-3">
+              <label for="stockProducto" class="form-label">Stock</label>
+              <input type="number" class="form-control" id="stockProducto">
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="productoDestacado">
+              <label class="form-check-label" for="productoDestacado">
+                Destacado
+              </label>
+            </div>
+          </form>
         </div>
-        <div class="mb-3">
-          <label for="imagenProducto" class="form-label">Imagen</label>
-          <input type="text" class="form-control" id="imagenProducto" aria-describedby="imagenProductoAyuda">
-          <div id="imagenProductoAyuda" class="form-text">Ingrese el link de una imagen</div>
+        <div class="card-footer">
+          <button class="btn btn-outline-info w-100">Enviar</button>
         </div>
-        <div class="mb-3">
-          <label for="precioProducto" class="form-label">Precio</label>
-          <input type="number" class="form-control" id="precioProducto" aria-describedby="precioProductoAyuda" step="0.01">
-          <div id="precioProductoAyuda" class="form-text">Puede ingresar decimales de la forma 99,55</div>
-        </div>
-        <div class="mb-3">
-          <label for="stockProducto" class="form-label">Stock</label>
-          <input type="number" class="form-control" id="stockProducto">
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="productoDestacado">
-          <label class="form-check-label" for="productoDestacado">
-            Destacado
-          </label>
-        </div>
-      </form>
-    </div>
-    <div class="card-footer">
-      <button class="btn btn-outline-info w-100">Enviar</button>
-    </div>
-  </div>
-
-  <div class="card m-2">
-    <div class="card-header">
-      <h3>Listar Productos</h3>
-    </div>
-    <div class="card-body">
-      <div class="form-check m-2">
-        <input class="form-check-input" type="checkbox" value="" id="listarProductoDestacado">
-        <label class="form-check-label" for="listarProductoDestacado">
-          Destacados
-        </label>
       </div>
-      <button class="btn btn-info w-100 m-2"> Listar </button>
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="card pb-0 m-2" style="width: 18rem;">
-            <img src="assets/imagenes-menu/productos.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger">Eliminar</button>
-                <button type="button" class="btn btn-warning">Modificar</button>
+    </div>
+    <div class="tab-pane fade" id="pills-eliminar" role="tabpanel" aria-labelledby="pills-eliminar-tab" tabindex="0">
+      <div class="card m-2">
+        <div class="card-header">
+          <h3>Eliminar Producto</h3>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="idProducto" class="form-label">Id del Producto</label>
+              <input type="text" class="form-control" id="idProducto" aria-describedby="idProductoAyuda">
+              <div id="idProductoAyuda" class="form-text">Ingrese el id del Producto a eliminar</div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-outline-info w-100">Eliminar</button>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-modificar" role="tabpanel" aria-labelledby="pills-modificar-tab" tabindex="0">
+      <div class="card m-2">
+        <div class="card-header">
+          <h3>Modificar Producto</h3>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="idProductoModificar" class="form-label">Id del Producto</label>
+              <input type="text" class="form-control" id="idProductoModificar" aria-describedby="idProductoModificarAyuda">
+              <div id="idProductoModificarAyuda" class="form-text">Ingrese el id del Producto a modificar</div>
+            </div>
+            <button class="btn btn-info w-100">Buscar</button>
+            <div class="table-group-divider mt-1 mb-1"></div>
+            <div class="mb-3">
+              <label for="nombreProductoModificar" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombreProductoModificar" aria-describedby="nombreProductoModificarAyuda">
+              <div id="nombreProductoModificarAyuda" class="form-text">Ingrese el nombre del Producto</div>
+            </div>
+            <div class="mb-3">
+              <label for="descripcionProductoModificar" class="form-label">Descripcion</label>
+              <input type="text" class="form-control" id="descripcionProductoModificar">
+            </div>
+            <div class="mb-3">
+              <label for="imagenProductoModificar" class="form-label">Imagen</label>
+              <input type="text" class="form-control" id="imagenProductoModificar" aria-describedby="imagenProductoModificarAyuda">
+              <div id="imagenProductoModificarAyuda" class="form-text">Ingrese el link de una imagen</div>
+            </div>
+            <div class="mb-3">
+              <label for="precioProductoModificar" class="form-label">Precio</label>
+              <input type="number" class="form-control" id="precioProductoModificar" aria-describedby="precioProductoModificarAyuda" step="0.01">
+              <div id="precioProductoModificarAyuda" class="form-text">Puede ingresar decimales de la forma 99,55</div>
+            </div>
+            <div class="mb-3">
+              <label for="stockProductoModificar" class="form-label">Stock</label>
+              <input type="number" class="form-control" id="stockProductoModificar">
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="productoModificarDestacado">
+              <label class="form-check-label" for="productoModificarDestacado">
+                Destacado
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-outline-info w-100">Modificar</button>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-listar" role="tabpanel" aria-labelledby="pills-listar-tab" tabindex="0">
+      <div class="card m-2">
+        <div class="card-header">
+          <h3>Listar Productos</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-check m-2">
+            <input class="form-check-input" type="checkbox" value="" id="listarProductoDestacado">
+            <label class="form-check-label" for="listarProductoDestacado">
+              Destacados
+            </label>
+          </div>
+          <button class="btn btn-info w-100 m-2"> Listar </button>
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card pb-0 m-2" style="width: 18rem;">
+                <img src="assets/imagenes-menu/productos.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <button type="button" class="btn btn-warning">Modificar</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -88,72 +152,4 @@
       </div>
     </div>
   </div>
-
-  <div class="card m-2">
-    <div class="card-header">
-      <h3>Eliminar Producto</h3>
-    </div>
-    <div class="card-body">
-      <form>
-        <div class="mb-3">
-          <label for="idProducto" class="form-label">Id del Producto</label>
-          <input type="text" class="form-control" id="idProducto" aria-describedby="idProductoAyuda">
-          <div id="idProductoAyuda" class="form-text">Ingrese el id del Producto a eliminar</div>
-        </div>
-      </form>
-    </div>
-    <div class="card-footer">
-      <button class="btn btn-outline-info w-100">Eliminar</button>
-    </div>
-  </div>
-
-  <div class="card m-2">
-    <div class="card-header">
-      <h3>Modificar Producto</h3>
-    </div>
-    <div class="card-body">
-      <form>
-        <div class="mb-3">
-          <label for="idProductoModificar" class="form-label">Id del Producto</label>
-          <input type="text" class="form-control" id="idProductoModificar" aria-describedby="idProductoModificarAyuda">
-          <div id="idProductoModificarAyuda" class="form-text">Ingrese el id del Producto a modificar</div>
-        </div>
-        <button class="btn btn-info w-100">Buscar</button>
-        <div class="table-group-divider mt-1 mb-1"></div>
-        <div class="mb-3">
-          <label for="nombreProductoModificar" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombreProductoModificar" aria-describedby="nombreProductoModificarAyuda">
-          <div id="nombreProductoModificarAyuda" class="form-text">Ingrese el nombre del Producto</div>
-        </div>
-        <div class="mb-3">
-          <label for="descripcionProductoModificar" class="form-label">Descripcion</label>
-          <input type="text" class="form-control" id="descripcionProductoModificar">
-        </div>
-        <div class="mb-3">
-          <label for="imagenProductoModificar" class="form-label">Imagen</label>
-          <input type="text" class="form-control" id="imagenProductoModificar" aria-describedby="imagenProductoModificarAyuda">
-          <div id="imagenProductoModificarAyuda" class="form-text">Ingrese el link de una imagen</div>
-        </div>
-        <div class="mb-3">
-          <label for="precioProductoModificar" class="form-label">Precio</label>
-          <input type="number" class="form-control" id="precioProductoModificar" aria-describedby="precioProductoModificarAyuda" step="0.01">
-          <div id="precioProductoModificarAyuda" class="form-text">Puede ingresar decimales de la forma 99,55</div>
-        </div>
-        <div class="mb-3">
-          <label for="stockProductoModificar" class="form-label">Stock</label>
-          <input type="number" class="form-control" id="stockProductoModificar">
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="productoModificarDestacado">
-          <label class="form-check-label" for="productoModificarDestacado">
-            Destacado
-          </label>
-        </div>
-       </form>
-    </div>
-    <div class="card-footer">
-      <button class="btn btn-outline-info w-100">Modificar</button>
-    </div>
-  </div>
-
 </div>
