@@ -22,14 +22,19 @@ export class ProductoComponent {
     this.producto.destacado = !this.producto.destacado;
   }
   obtenerProductos() {
-    this.productoService.getProductos().subscribe(
-      (res : any) => {
-        this.productos = res;
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    if (!this.destacadoLista) {
+      this.productoService.getProductos().subscribe(
+        (res : any) => {
+          this.productos = res;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }else{
+      this.obtenerProductosDestacados();
+    }
+
   }
   cargarProducto() {
   if (this.validarProducto(this.producto)) {
