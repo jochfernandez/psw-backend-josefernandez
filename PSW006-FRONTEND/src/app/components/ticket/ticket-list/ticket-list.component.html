@@ -30,10 +30,11 @@
         <div class="card pb-0 m-2">
           <img src="assets/imagenes-menu/tickets.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Ticket</h5>
+            <h5 class="card-title">Ticket {{(t.espectador)}}</h5>
             <p class="card-text">Categoria: {{t.categoriaEspectador}}</p>
             <p class="card-text">Fecha de Compra: {{t.fechaCompra}}</p>
             <p class="card-text">Precio: {{t.precioTicket | currency}}</p>
+            <p class="card-text">Categoria: {{t.categoria}}</p>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
               <button type="button" class="btn btn-danger">Eliminar</button>
               <button type="button" class="btn btn-warning">Modificar</button>

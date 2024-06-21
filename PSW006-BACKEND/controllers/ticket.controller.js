@@ -75,7 +75,7 @@ ticketCtrl.putTicket = async (req, res) => {
     }
 }
 
-ticketCtrl.getTickets = async (req, res) => {
+ticketCtrl.getTicketsPorCategoria = async (req, res) => {
     try{
         const tickets = await Ticket.find({categoria: req.params.categoria});
         res.json(tickets);

@@ -32,4 +32,5 @@ export class EspectadorService {
     };
     return this._http.get("http://localhost:3000/api/espectador/espectador/"+id,httpOptions);
   }
+
 }

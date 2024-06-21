@@ -7,6 +7,5 @@ router.get('/ticket', ticketCtrl.getTickets);
 router.delete('/ticket/:id', ticketCtrl.deleteTicket);
 router.patch('/ticket/:id', ticketCtrl.patchTicket);
 router.put('/ticket/:id', ticketCtrl.putTicket);
-router.get('/ticket/:categoria', ticketCtrl.getTickets);
-
+router.get('/ticketPorCategoria/:categoria', ticketCtrl.getTicketsPorCategoria);
 module.exports = router;

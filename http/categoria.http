@@ -9,8 +9,8 @@ POST {{url}}/api/categoria/categoria
 content-type: application/json
 
 {
-  "nombre" : "Golden",
-  "descripcion" : "Categoria Golden"
+  "nombre" : "Silver",
+  "descripcion" : "Categoria Silver"
 }
 
 ###

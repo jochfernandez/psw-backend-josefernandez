@@ -4,32 +4,35 @@
   </div>
   <div class="card-body">
     <form>
-      <div class="mb-3">
-        <label for="precioTicket" class="form-label">Precio Ticket</label>
-        <input type="number" class="form-control" id="precioTicket" aria-describedby="precioTicketAyuda" step="0.01" [ngModel]="ticket.precioTicket" name="precioTicket">
-        <div id="precioTicketAyuda" class="form-text">Puede ingresar decimales de la forma 99,55</div>
-      </div>
-      <div class="mb-3">
-        <label for="categoriaEspectadorTicket" class="form-label">Categoria</label>
-        <select class="form-select" id="categoriaEspectadorTicket" aria-labelledby="categoriaEspectadorTicketAyuda" name="categoriaTicket" [(ngModel)]="ticket.categoriaEspectador">
-          <option value="L">Local</option>
-          <option value="E">Extranjero</option>
-        </select>
-        <div id="categoriaEspectadorTicketAyuda" class="form-text">Solo puede ingresar L (Local) o E (Extranjero)</div>
-      </div>
-      <div class="mb-3">
-        <label for="fechaTicket" class="form-label">Fecha Compra</label>
-        <input type="text" class="form-control" id="fechaTicket" aria-describedby="fechaTicketAyuda" [ngModel]="ticket.fechaCompra" name="fechaCompraTicket">
-        <div id="fechaTicketAyuda" class="form-text">Utilice el formato dd/mm/yyyy, por ejemplo 02/01/2024</div>
-      </div>
-      <div class="mb-3">
-        <label for="espectadorPorTicket" class="form-label">Espectadores</label>
-        <select class="form-select" id="espectadorPorTicket" aria-describedby="espectadorPorTicketAyuda" name="espectadorTicket" [(ngModel)]="ticket.espectador" >
-          <option *ngFor="let e of espectadores" [value]="e.id">{{e.apellido}} {{e.nombre}}</option>
-        </select>
-        <div id="espectadorPorTicketAyuda" class="form-text">Seleccione algún Espectador de la lista</div>
-      </div>
-    </form>
+  <div class="mb-3">
+    <label for="precioTicket" class="form-label">Precio Ticket</label>
+    <input type="number" class="form-control" id="precioTicket" aria-describedby="precioTicketAyuda" step="0.01" [(ngModel)]="ticket.precioTicket" name="precioTicket">
+    <div id="precioTicketAyuda" class="form-text">Puede ingresar decimales de la forma 99,55</div>
+  </div>
+  <div class="mb-3">
+    <label for="categoriaEspectadorTicket" class="form-label">Categoria Espectador</label>
+    <select class="form-select" id="categoriaEspectadorTicket" aria-labelledby="categoriaEspectadorTicketAyuda" [(ngModel)]="ticket.categoriaEspectador" name="categoriaEspectadorTicket">
+      <option value="L">Local</option>
+      <option value="E">Extranjero</option>
+    </select>
+    <div id="categoriaEspectadorTicketAyuda" class="form-text">Solo puede ingresar L (Local) o E (Extranjero)</div>
+  </div>
+  <div class="mb-3">
+    <label for="fechaTicket" class="form-label">Fecha Compra</label>
+    <input type="text" class="form-control" id="fechaTicket" aria-describedby="fechaTicketAyuda" [(ngModel)]="ticket.fechaCompra" name="fechaCompraTicket">
+    <div id="fechaTicketAyuda" class="form-text">Utilice el formato dd/mm/yyyy, por ejemplo 02/01/2024</div>
+  </div>
+  <div class="mb-3">
+    <label for="espectadorPorTicket" class="form-label">Espectadores</label>
+    <input type="text" class="form-control" id="espectadorPorTicket" aria-describedby="espectadorTicketAyuda" [(ngModel)]="ticket.espectador" name="espectadorTicket" >
+    <div id="espectadorTicketAyuda" class="form-text">Ingrese el id de un participante</div>
+  </div>
+  <div class="mb-3">
+    <label for="categoriaPorTicket" class="form-label">Categoria Ticket</label>
+    <input type="text" class="form-control" id="categoriaPorTicket" aria-describedby="categoriaTicketAyuda" [(ngModel)]="ticket.categoria" name="categoriaPorTicket" >
+    <div id="categoriaTicketAyuda" class="form-text">Ingrese el id de una categoria</div>
+  </div>
+</form>
   </div>
   <div class="card-footer">
     <button class="btn btn-outline-primary w-100" (click)="cargarTicker()" >Enviar</button>

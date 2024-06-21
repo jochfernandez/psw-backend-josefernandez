@@ -3,6 +3,8 @@ import {TicketService} from "../../../services/ticket/ticket.service";
 import {Ticket} from "../../../models/ticket";
 import {CommonModule, NgForOf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {EspectadorService} from "../../../services/espectador/espectador.service";
+import {CategoriaService} from "../../../services/categoria.service";
 
 @Component({
   selector: 'app-ticket-list',
@@ -14,7 +16,7 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './ticket-list.component.css'
 })
 export class TicketListComponent {
-  constructor(private ticketService : TicketService) {
+  constructor(private ticketService : TicketService, private espectadorService:EspectadorService, private categoriaService : CategoriaService) {
     this.obtenerTodosLosTickets();
   }
   todosLosTickets : Array<Ticket> = [];

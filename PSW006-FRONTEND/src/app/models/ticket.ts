@@ -3,11 +3,13 @@ export class Ticket{
   precioTicket : number;
   categoriaEspectador : string;
   fechaCompra : string;
-  espectador : Espectador;
+  espectador : string;
+  categoria : string;
   constructor() {
     this.precioTicket = 0;
     this.categoriaEspectador = '';
     this.fechaCompra = '';
-    this.espectador = new Espectador();
+    this.espectador = '';
+    this.categoria = '';
   }
 }

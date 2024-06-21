@@ -6,5 +6,6 @@ const TicketSchema = new Schema({
     categoriaEspectador : { type: String, required: true },
     fechaCompra : { type: String, required: true },
     espectador : { type: Schema.Types.ObjectId, ref: 'Espectador' , required: true},
+    categoria : {type:Schema.Types.ObjectId, ref: 'Categoria', required: true},
 });
 module.exports = moongose.model('Ticket', TicketSchema) || moongose.models.Ticket;

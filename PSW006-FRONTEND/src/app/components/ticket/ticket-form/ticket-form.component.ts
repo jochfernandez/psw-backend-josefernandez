@@ -24,8 +24,9 @@ export class TicketFormComponent {
   cargarTicker(){
     this.ticketService.addTicket(this.ticket).subscribe(
       (result) => {
-        console.log("Este es el id "+this.ticket.espectador.id);
+        console.log("Este es el id "+this.ticket.espectador);
         console.log(result);
+        alert("Ticket guardado con exito");
       },
       (error) => {
         console.log(error);
